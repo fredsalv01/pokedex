@@ -8,7 +8,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container{
+.container {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -22,4 +22,34 @@ h1 {
   letter-spacing: 1px;
   text-shadow: 5px 2px 15px rgba(0, 0, 0, 0.3);
   color: white;
+}
+
+#pokemons {
+  display: grid;
+  width: 89%;
+  max-width: 100vh;
+  margin: 0 auto;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.pokemon {
+  background-color: rgb(100, 60, 210);
+  padding: 2rem 1rem;
+  margin: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  color: #fefefe;
+  text-transform: capitalize;
+  box-shadow: 5px 5px 5px rgba(36, 35, 35, 0.3);
+}
+
+.pokemon:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 10px rgba(36, 35, 35, 0.3);
+}
+
+.pokemon p {
+  display: block;
+  padding: 0;
+  margin: 0;
 }
