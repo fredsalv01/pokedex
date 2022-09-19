@@ -1,7 +1,7 @@
 window.onload = this.getAllPokemons();
 
 async function getAllPokemons() {
-  const result = await fetch('http://localhost:3000/api/v2/pokemon');
+  const result = await fetch('http://localhost:3000/api/v2/pokemon?limit=150');
   const json = await result.json();
 
   json.sort(function sortElements(a, b) {
@@ -22,7 +22,7 @@ async function getAllPokemons() {
     // text content
     id.textContent = `#${item.no}`;
     name.textContent = item.name;
-    image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.no}.png`
+    image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.no}.png`;
 
     //appends
     pokemon.appendChild(id);
