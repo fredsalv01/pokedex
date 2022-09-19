@@ -4,7 +4,7 @@
 
 # Preview del proyecto
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/fredsalv01/pokedex/blob/master/public/Captura1.PNG)
 
 # Ejecutar en desarrollo
 
