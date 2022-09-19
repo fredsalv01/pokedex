@@ -9,13 +9,25 @@ async function getAllPokemons() {
   });
 
   json.forEach((item) => {
+    var container = document.getElementById('pokemons');
     var pokemon = document.createElement('div');
     pokemon.className = 'pokemon';
     pokemon.id = item.no;
-    pokemon.textContent = item.name;
+
+    // creating elments
     var id = document.createElement('p');
+    var name = document.createElement('span');
+    var image = document.createElement('img');
+
+    // text content
     id.textContent = `#${item.no}`;
+    name.textContent = item.name;
+    image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.no}.png`
+
+    //appends
     pokemon.appendChild(id);
-    document.getElementById('pokemons').appendChild(pokemon);
+    pokemon.appendChild(name);
+    pokemon.appendChild(image);
+    container.appendChild(pokemon);
   });
 }
