@@ -1,9 +1,12 @@
-html, body {
+html,
+body {
   padding: 20px;
   background-color: rgb(104, 66, 206);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
   font-size: 20px;
+  font-weight: 100;
   color: white;
 }
