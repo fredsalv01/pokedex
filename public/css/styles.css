@@ -2,9 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  padding: 20px;
   box-sizing: border-box;
-  background-color: rgb(104, 66, 206);
+  background-color: rgba(42, 40, 46, 0.849);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -17,11 +16,12 @@ body {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 48px;
   font-weight: 400;
   letter-spacing: 1px;
   text-shadow: 5px 2px 15px rgba(0, 0, 0, 0.3);
   color: white;
+  margin-bottom: 1rem;
 }
 
 #pokemons {
@@ -32,19 +32,19 @@ h1 {
 }
 
 .pokemon {
-  background-color: rgb(100, 60, 210);
+  background-color: rgb(56, 53, 65);
   padding: 2rem 1rem;
   margin: 1rem;
   text-align: center;
   border-radius: 1rem;
   color: #fefefe;
   text-transform: capitalize;
-  box-shadow: 5px 5px 5px rgba(36, 35, 35, 0.3);
+  box-shadow: 5px 5px 5px rgba(24, 24, 24, 0.3);
 }
 
 .pokemon:hover {
   cursor: pointer;
-  box-shadow: 10px 10px 10px rgba(36, 35, 35, 0.3);
+  box-shadow: 15px 15px 15px rgba(24, 24, 24, 0.3);
 }
 
 .pokemon p {
@@ -56,6 +56,11 @@ h1 {
 .pokemon span {
   display: block;
   padding: 0.5rem;
+  font-weight: 500;
+}
+
+.pokemon img {
+  transition: all 0.5s ease;
 }
 
 .pokemon:hover img {
