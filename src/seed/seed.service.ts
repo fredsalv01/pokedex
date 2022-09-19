@@ -20,17 +20,17 @@ export class SeedService {
       'https://pokeapi.co/api/v2/pokemon?limit=648',
     );
 
-    const insertPromiseArray = [];
+    const pokemonToInsert: { name: string; no: number }[] = [];
 
     data.results.forEach(({ name, url }) => {
       const segments = url.split('/');
       const no: number = +segments[segments.length - 2];
 
       // const pokemon = await this.pokemonModel.create({ name, no });
-      insertPromiseArray.push(this.pokemonModel.create({ name, no }));
+      pokemonToInsert.push({ name, no });
     });
 
-    await Promise.all(insertPromiseArray);
+    await this.pokemonModel.insertMany(pokemonToInsert);
 
     return 'Seed Executed';
   }

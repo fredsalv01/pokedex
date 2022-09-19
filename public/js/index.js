@@ -7,6 +7,7 @@ async function getAllPokemons() {
   json.sort(function sortElements(a, b) {
     return a.no - b.no;
   });
+
   json.forEach((item) => {
     var pokemon = document.createElement('div');
     pokemon.className = 'pokemon';
@@ -17,5 +18,4 @@ async function getAllPokemons() {
     pokemon.appendChild(id);
     document.getElementById('pokemons').appendChild(pokemon);
   });
-  console.log(json);
 }

@@ -26,10 +26,9 @@ h1 {
 
 #pokemons {
   display: grid;
-  width: 89%;
-  max-width: 100vh;
   margin: 0 auto;
-  grid-template-columns: repeat(6, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 20rem));
 }
 
 .pokemon {
