@@ -13,6 +13,19 @@ async function getAllPokemons() {
     var pokemon = document.createElement('div');
     pokemon.className = 'pokemon';
     pokemon.id = item.no;
+    pokemon.onclick = function (e) {
+      e.preventDefault();
+      var modal = document.getElementById('myModal');
+
+
+      
+
+      // When the user clicks the button, open the modal
+     
+      modal.style.display = 'block';
+
+     
+    };
 
     // creating elments
     var id = document.createElement('p');
