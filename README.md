@@ -43,6 +43,12 @@ docker-compose up -d
 http://localhost:3000/api/v2/seed
 ```
 
+9. Puedes ver el demo de la aplicacion en el siguiente link:
+
+```
+https://nestjs-poke.herokuapp.com/
+```
+
 ## Stack usado
 
 - MongoDB

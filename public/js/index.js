@@ -4,9 +4,7 @@ window.onload = async () => {
 };
 
 async function getAllPokemons() {
-  const result = await fetch(
-    'https://nestjs-poke.herokuapp.com/api/v2/pokemon?limit=150',
-  );
+  const result = await fetch('http://localhost:3000/api/v2/pokemon?limit=150');
   const json = await result.json();
 
   json.sort(function sortElements(a, b) {
@@ -18,20 +16,6 @@ async function getAllPokemons() {
     var pokemon = document.createElement('div');
     pokemon.className = 'pokemon';
     pokemon.id = item.no;
-
-    //   modal.style.display = 'block';
-    //   // //obtener los elementos dentro del modal para mostrar la data
-    //   // var title = document.getElementsByClassName('pokemon-name');
-    //   // var numberTag = document.getElementsByClassName('pokemon-number');
-    //   // // var desc = document.getElementsByClassName('description');
-
-    //   // title.innerHTML = item.name;
-    //   // numberTag.innerHTML = '# ' + item.no;
-    //   // // desc.innerHTML = elementData.description;
-
-    //   // When the user clicks the button, open the modal
-    //   modal.style.display = 'block';
-    // };
 
     // creating elments
     var id = document.createElement('p');
