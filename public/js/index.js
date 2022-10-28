@@ -4,7 +4,9 @@ window.onload = async () => {
 };
 
 async function getAllPokemons() {
-  const result = await fetch('http://localhost:3000/api/v2/pokemon?limit=150');
+  const result = await fetch(
+    'https://nestjs-poke.herokuapp.com/api/v2/pokemon?limit=150',
+  );
   const json = await result.json();
 
   json.sort(function sortElements(a, b) {
