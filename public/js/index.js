@@ -1,4 +1,7 @@
-window.onload = this.getAllPokemons();
+window.onload = async () => {
+  await this.getAllPokemons();
+  clickPokemon();
+};
 
 async function getAllPokemons() {
   const result = await fetch('http://localhost:3000/api/v2/pokemon?limit=150');
@@ -13,19 +16,20 @@ async function getAllPokemons() {
     var pokemon = document.createElement('div');
     pokemon.className = 'pokemon';
     pokemon.id = item.no;
-    pokemon.onclick = function (e) {
-      e.preventDefault();
-      var modal = document.getElementById('myModal');
 
+    //   modal.style.display = 'block';
+    //   // //obtener los elementos dentro del modal para mostrar la data
+    //   // var title = document.getElementsByClassName('pokemon-name');
+    //   // var numberTag = document.getElementsByClassName('pokemon-number');
+    //   // // var desc = document.getElementsByClassName('description');
 
-      
+    //   // title.innerHTML = item.name;
+    //   // numberTag.innerHTML = '# ' + item.no;
+    //   // // desc.innerHTML = elementData.description;
 
-      // When the user clicks the button, open the modal
-     
-      modal.style.display = 'block';
-
-     
-    };
+    //   // When the user clicks the button, open the modal
+    //   modal.style.display = 'block';
+    // };
 
     // creating elments
     var id = document.createElement('p');
@@ -43,4 +47,48 @@ async function getAllPokemons() {
     pokemon.appendChild(image);
     container.appendChild(pokemon);
   });
+}
+
+clickPokemon = () => {
+  const pokemon = document.querySelectorAll('.pokemon');
+  pokemon.forEach(function (trigger) {
+    trigger.addEventListener('click', async function (e) {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      console.log(e.target.id);
+      const loader = document.getElementById('loading');
+      const modal = document.getElementById('myModal');
+      //set loader visible
+      loader.style.display = 'flex';
+
+      setTimeout(async () => {
+        //get data of pokemon
+        const pokemonData = await getPokemon(e.target.id);
+        //set loader invisible
+        loader.style.display = 'none';
+
+        //obtener los elementos dentro del modal para mostrar la data
+        var title = document.getElementById('pkmnName');
+        var numberTag = document.getElementById('pkmnNumber');
+        var desc = document.getElementById('pkmnDesc');
+
+        title.innerHTML = pokemonData.name;
+        numberTag.innerHTML = '# ' + pokemonData.id;
+        desc.innerHTML = `${pokemonData.flavor_text_entries[3].flavor_text.replace(
+          /(\r\n|\n|\r)/gm,
+          ' ',
+        )}`;
+
+        //set modal visible
+        modal.style.display = 'block';
+      }, 2000);
+    });
+  });
+};
+
+async function getPokemon(id) {
+  const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+  const json = await data.json();
+  console.log(json);
+  return json;
 }

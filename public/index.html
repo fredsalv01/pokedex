@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <script type="text/javascript" src="/js/index.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <h1>PokeDex</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/pokemon-loader.css" />
+  <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>PokeDex</h1>
+  </div>
+  <div id="pokemons"></div>
+
+  <!-- modal -->
+  <div id="loading" class="loader">
+    <div class="loader-body">
+      <div class="pokeball"></div>
     </div>
-    <div id="pokemons"></div>
-
-    <!-- modal -->
-
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+  </div>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-content__title">
+        <h2 id="pkmnName" class="pokemon-name">Bulbasaur</h2>
+      </div>
+      <div class="modal-content__description">
+        <p id="pkmnNumber" class="pokedex-number"># 1</p>
+        <p id="pkmnDesc" style="white-space: pre-line" class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+          dolore culpa alias illo dolores, soluta quaerat. Quod dignissimos
+          ipsam vitae a, provident possimus amet at saepe quisquam rerum
+          officia expedita adipisci sequi sed accusantium explicabo quos
+          voluptatibus sapiente eius, consequuntur incidunt tenetur dicta
+          fugit! Molestiae ducimus ipsum sequi mollitia quo?
+        </p>
       </div>
     </div>
-    <script>
-      var modal = document.getElementById('myModal');
+  </div>
+  <script>
+    var modal = document.getElementById('myModal');
 
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName('close')[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName('close')[0];
 
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function () {
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = 'none';
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
         modal.style.display = 'none';
-      };
+      }
+    };
+  </script>
+</body>
 
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = 'none';
-        }
-      };
-    </script>
-  </body>
 </html>
